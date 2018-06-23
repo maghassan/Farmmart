@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "564913364670",
+    "firebase_url": "https://communitychallenge-31497.firebaseio.com",
+    "project_id": "communitychallenge-31497",
+    "storage_bucket": "communitychallenge-31497.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564913364670:android:a3ac11f9445a3418",
+        "android_client_info": {
+          "package_name": "challenge.community.farmmart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564913364670-ls2nic8glbmhtjs7q92jbk9bg1ah1q80.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "challenge.community.farmmart",
+            "certificate_hash": "90a3b9fe5ae34b9d1022da9d79c4fbecf4aa448e"
+          }
+        },
+        {
+          "client_id": "564913364670-a2b4th50rhtgi79gvg9mt2ddp482ffj6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoWmU9hp0R3vHegFLmCZQXqMr4Vhvaoyk"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564913364670-a2b4th50rhtgi79gvg9mt2ddp482ffj6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
