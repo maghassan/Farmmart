@@ -43,7 +43,7 @@ public class PostActivity extends AppCompatActivity {
 
     private TextView postBtn;
 
-    private EditText postTitle, postContent;
+    private EditText postTitle, postContent, postPrice;
 
     private ImageView postImage;
 
@@ -70,6 +70,7 @@ public class PostActivity extends AppCompatActivity {
         postBtn = findViewById(R.id.postButton);
         postTitle = findViewById(R.id.postTitle);
         postContent = findViewById(R.id.postContent);
+        postPrice = findViewById(R.id.postPrice);
         postImage = findViewById(R.id.postImage);
 
         firebaseFirestore = FirebaseFirestore.getInstance();
@@ -98,8 +99,9 @@ public class PostActivity extends AppCompatActivity {
 
                 final String title = postTitle.getText().toString();
                 final String content = postContent.getText().toString();
+                final String price = postPrice.getText().toString();
 
-                if (!TextUtils.isEmpty(title) && !TextUtils.isEmpty(content) && postImageUri != null) {
+                if (!TextUtils.isEmpty(title) && !TextUtils.isEmpty(content) && !TextUtils.isEmpty(price) && postImageUri != null) {
 
                     postProgress.setVisibility(View.VISIBLE);
 
@@ -145,6 +147,7 @@ public class PostActivity extends AppCompatActivity {
                                                 postMap.put("image_thumb", downloadthumbUri);
                                                 postMap.put("post_title", title);
                                                 postMap.put("post_content", content);
+                                                postMap.put("post_price", price);
                                                 postMap.put("user_id", current_user_id);
                                                 postMap.put("time_stamp", FieldValue.serverTimestamp());
 

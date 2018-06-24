@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_below="@+id/postImage"
-        android:hint="Post Title"
+        android:hint="Product Title"
         android:textColor="@color/colorPrimary"
         android:id="@+id/postTitle"/>
 
@@ -27,14 +27,23 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:layout_below="@+id/postTitle"
-        android:hint="Post Title"
+        android:hint="Product Description"
         android:textColor="@color/colorPrimary"
         android:id="@+id/postContent"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_below="@+id/postContent"
+        android:hint="Product Price"
+        android:textColor="@color/colorPrimary"
+        android:id="@+id/postPrice"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/postContent"
+        android:layout_below="@id/postPrice"
         android:background="@color/colorPrimary"
         android:text="Post"
         android:textAlignment="center"

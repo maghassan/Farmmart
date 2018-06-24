@@ -193,6 +193,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             public void onClick(View v) {
 
                 Intent buyProducts = new Intent(context, BuyProducts.class);
+                buyProducts.putExtra("blog_post_id", blogPostId);
                 context.startActivity(buyProducts);
             }
         });

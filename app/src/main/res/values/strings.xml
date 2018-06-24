@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Farmmart</string>
+
+    <string name="facebook_app_id">362417460829293</string>
+    <string name="fb_login_protocol_scheme">fb362417460829293</string>
+
 </resources>
