@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.facebook.internal.Logger;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +27,9 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
+
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth firebaseAuth;
     private RecyclerAdapter blogRecyclerAdapter;
+
+    Logger logger;
+
+    /**
+     * This function assumes logger is an instance of AppEventsLogger and has been
+     * created using AppEventsLogger.newLogger() call.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -203,4 +214,9 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
+
+    /**
+     * This function assumes logger is an instance of AppEventsLogger and has been
+     * created using AppEventsLogger.newLogger() call.
+     */
 }

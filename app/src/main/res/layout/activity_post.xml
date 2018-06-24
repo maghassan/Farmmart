@@ -38,7 +38,8 @@
         android:layout_below="@+id/postContent"
         android:hint="Product Price"
         android:textColor="@color/colorPrimary"
-        android:id="@+id/postPrice"/>
+        android:id="@+id/postPrice"
+        android:inputType="number"/>
 
     <TextView
         android:layout_width="wrap_content"

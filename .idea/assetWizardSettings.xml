@@ -47,7 +47,7 @@
                                           <PersistentState>
                                             <option name="values">
                                               <map>
-                                                <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/action/ic_shopping_cart_black_24dp.xml" />
+                                                <entry key="url" value="jar:file:/Applications/Android%20Studio.app/Contents/plugins/android/lib/android.jar!/images/material_design_icons/communication/ic_call_black_24dp.xml" />
                                               </map>
                                             </option>
                                           </PersistentState>
@@ -58,7 +58,7 @@
                                   <option name="values">
                                     <map>
                                       <entry key="iconShape" value="NONE" />
-                                      <entry key="outputName" value="basket_icon" />
+                                      <entry key="outputName" value="call_icon" />
                                     </map>
                                   </option>
                                 </PersistentState>

@@ -50,22 +50,42 @@
                 android:id="@+id/blogPostImage"
                 android:scaleType="centerCrop"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:orientation="horizontal"
                 android:layout_below="@id/blogPostImage"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginTop="8dp"
-                android:id="@+id/postTitle"
-                android:text="Lorem Ipsum"
-                android:textStyle="bold"/>
+                android:id="@+id/linerPost">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/postTitle"
+                    android:text="Lorem Ipsum"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:id="@+id/postPrice"
+                    android:text="Product Price"
+                    android:textAlignment="textEnd"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:maxLines="3"
-                android:layout_below="@id/postTitle"
+                android:layout_below="@id/linerPost"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="8dp"

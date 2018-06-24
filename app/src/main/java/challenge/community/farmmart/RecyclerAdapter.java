@@ -68,6 +68,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         String post_Title = blog_list.get(position).getPost_title();
         holder.setITitle(post_Title);
 
+        String postPrice = blog_list.get(position).getPost_price();
+        holder.setPrice(postPrice);
+
         String post_Content = blog_list.get(position).getPost_content();
         holder.setContent(post_Content);
 
@@ -84,6 +87,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         String userName = user_list.get(position).getName();
         final String userImage = user_list.get(position).getImage();
+        String userContact = user_list.get(position).getContact();
+        String userAddress = user_list.get(position).getAddress();
 
         holder.setUserData(userName, userImage);
 
@@ -192,8 +197,19 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             @Override
             public void onClick(View v) {
 
+                String title = holder.titleView.getText().toString();
+                String price = holder.priceView.getText().toString();
+                String postId = blog_user_id.toString();
+                String contact = user_list.get(position).contact;
+
                 Intent buyProducts = new Intent(context, BuyProducts.class);
                 buyProducts.putExtra("blog_post_id", blogPostId);
+
+                buyProducts.putExtra("title", title);
+                buyProducts.putExtra("price", price);
+                buyProducts.putExtra("postId", postId);
+                buyProducts.putExtra("contact", contact);
+
                 context.startActivity(buyProducts);
             }
         });
@@ -253,6 +269,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
         private TextView titleView;
         private TextView contentView;
+        private TextView priceView;
         private ImageView blogPostImage;
         private TextView blogDate;
         private TextView blogUserName;
@@ -295,6 +312,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
 
             contentView = mView.findViewById(R.id.postContent);
             contentView.setText(postContent);
+        }
+
+        public void setPrice(String postPrice) {
+
+            priceView = mView.findViewById(R.id.postPrice);
+            priceView.setText(postPrice);
         }
 
         public void setBlogImage(String downloadUri){

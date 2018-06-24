@@ -4,18 +4,19 @@ import java.util.Date;
 
 public class DataModel extends BlogPostId{
 
-    public String user_id, image_url, post_content, post_title, image_thumb;
+    public String user_id, image_url, post_content, post_title, image_thumb, post_price;
     public Date time_stamp;
 
     public DataModel(){}
 
-    public DataModel(String user_id, String image_Url, String post_content, String post_title, String image_thumb, Date time_stamp) {
+    public DataModel(String user_id, String image_Url, String post_content, String post_title, String image_thumb, Date time_stamp, String post_price) {
         this.user_id = user_id;
         this.image_url = image_Url;
         this.post_content = post_content;
         this.post_title = post_title;
         this.image_thumb = image_thumb;
         this.time_stamp = time_stamp;
+        this.post_price = post_price;
     }
 
     public String getUser_id() {
@@ -64,5 +65,13 @@ public class DataModel extends BlogPostId{
 
     public void setTime_stamp(Date time_stamp) {
         this.time_stamp = time_stamp;
+    }
+
+    public String getPost_price() {
+        return post_price;
+    }
+
+    public void setPost_price(String post_price) {
+        this.post_price = post_price;
     }
 }

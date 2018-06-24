@@ -7,13 +7,91 @@
     android:layout_height="match_parent"
     tools:context=".BuyProducts">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:textSize="24dp"
+        android:orientation="vertical"
+        android:id="@+id/productLinear">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_Title"
+            android:text="Product Title"
+            android:layout_margin="16dp"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/product_Price"
+            android:text="Product Price"
+            android:layout_margin="16dp"
+            android:textSize="14sp"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:src="@mipmap/call_icon"
+        android:id="@+id/callSeller"
+        android:layout_below="@+id/productLinear"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:layout_below="@id/callSeller"
+        android:text="CALL SELLER OR ENTER DELIVERY DETAILS"
         android:textAlignment="center"
         android:textColor="@color/colorPrimary"
-        android:text="Feature Coming soon!"/>
+        android:id="@+id/text"
+        android:layout_margin="16dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/text"
+        android:id="@+id/linear">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Full Name"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/buyerName"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Pickup Address"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/buyerAddress"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:hint="Contact Number"
+            android:textColor="@color/colorPrimary"
+            android:id="@+id/buyerContact"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linear"
+        android:background="@color/colorPrimary"
+        android:text="Proceed"
+        android:textAlignment="center"
+        android:layout_margin="8dp"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/colorAccent"
+        android:id="@+id/postButton"/>
 
 </RelativeLayout>

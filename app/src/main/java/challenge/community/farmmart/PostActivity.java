@@ -147,7 +147,7 @@ public class PostActivity extends AppCompatActivity {
                                                 postMap.put("image_thumb", downloadthumbUri);
                                                 postMap.put("post_title", title);
                                                 postMap.put("post_content", content);
-                                                postMap.put("post_price", price);
+                                                postMap.put("post_price", "₦" + price);
                                                 postMap.put("user_id", current_user_id);
                                                 postMap.put("time_stamp", FieldValue.serverTimestamp());
 
