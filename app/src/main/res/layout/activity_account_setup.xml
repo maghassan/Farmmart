@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AccountSetup"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/background">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
@@ -55,10 +55,35 @@
                     android:layout_marginEnd="8dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
-                    android:padding="8dp"
+                    android:padding="16dp"
                     android:textColor="@color/colorPrimary"
                     android:textSize="14sp"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:hint="Full Name"/>
+                <EditText
+                    android:id="@+id/setupContact"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:padding="16dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:hint="Phone Number"/>
+                <EditText
+                    android:id="@+id/setupAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
+                    android:padding="16dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="14sp"
+                    android:textAlignment="center"
+                    android:hint="Contact Addrees"/>
 
             </LinearLayout>
 

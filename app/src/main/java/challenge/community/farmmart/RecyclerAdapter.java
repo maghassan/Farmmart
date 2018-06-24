@@ -188,6 +188,15 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             }
         });
 
+        holder.buyProducts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent buyProducts = new Intent(context, BuyProducts.class);
+                context.startActivity(buyProducts);
+            }
+        });
+
         /*holder.deletePost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -254,6 +263,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         private ImageView blogCommentBtn;
         private TextView blogCommentCount;
 
+        private ImageView buyProducts;
+
         private ImageView deletePost;
 
         private CardView mainBlogCard;
@@ -267,6 +278,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
             blogLikeBtn = mView.findViewById(R.id.likeBtn);
             blogCommentBtn = mView.findViewById(R.id.blog_comment_icon);
             //deletePost = mView.findViewById(R.id.deletePost);
+
+            buyProducts = mView.findViewById(R.id.buyProduct);
 
             mainBlogCard = mView.findViewById(R.id.mainBlogPost);
         }

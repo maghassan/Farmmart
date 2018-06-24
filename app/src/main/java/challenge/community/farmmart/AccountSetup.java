@@ -41,7 +41,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class AccountSetup extends AppCompatActivity {
 
-    private EditText setupName;
+    private EditText setupName, setupContact, setupAddress;
     private TextView setupBtn;
 
     private Toolbar setupToolbar;
@@ -78,6 +78,8 @@ public class AccountSetup extends AppCompatActivity {
         user_id = firebaseAuth.getCurrentUser().getUid();
 
         setupName = findViewById(R.id.setupName);
+        setupContact = findViewById(R.id.setupContact);
+        setupAddress = findViewById(R.id.setupAddress);
         setupBtn = findViewById(R.id.setBtn);
         setupBtn.setEnabled(false);
 
@@ -93,6 +95,9 @@ public class AccountSetup extends AppCompatActivity {
 
                                 String name = task.getResult().getString("name");
                                 String image = task.getResult().getString("image");
+                                String contact = task.getResult().getString("contact");
+                                String address = task.getResult().getString("address");
+
 
                                 mainImageURI = Uri.parse(image);
 
@@ -100,6 +105,8 @@ public class AccountSetup extends AppCompatActivity {
                                 //placeholderRequest.placeholder(R.drawable.profile);
 
                                 setupName.setText(name);
+                                setupContact.setText(contact);
+                                setupAddress.setText(address);
                                 Glide.with(AccountSetup.this).setDefaultRequestOptions(placeholderRequest).load(image).into(setupImage);
                             }
                         } else {
@@ -117,8 +124,10 @@ public class AccountSetup extends AppCompatActivity {
             public void onClick(View v) {
 
                 final String user_name = setupName.getText().toString();
+                final String contact = setupContact.getText().toString();
+                final String address = setupAddress.getText().toString();
 
-                if (!TextUtils.isEmpty(user_name) && mainImageURI != null) {
+                if (!TextUtils.isEmpty(user_name) &&!TextUtils.isEmpty(contact) && !TextUtils.isEmpty(address) && mainImageURI != null) {
 
                     setupProgress.setVisibility(View.VISIBLE);
 
@@ -144,7 +153,7 @@ public class AccountSetup extends AppCompatActivity {
 
                                 if (task.isSuccessful()) {
 
-                                    storeFirestore(task, user_name);
+                                    storeFirestore(task, user_name, contact, address);
                                     //Toast.makeText(AccountSetup.this, "The Image is Uploaded", Toast.LENGTH_LONG).show();
                                 } else {
 
@@ -156,7 +165,7 @@ public class AccountSetup extends AppCompatActivity {
                         });
                     } else {
 
-                        storeFirestore(null, user_name);
+                        storeFirestore(null, user_name, contact, address);
                     }
                 }
             }
@@ -171,7 +180,7 @@ public class AccountSetup extends AppCompatActivity {
 
                     if (ContextCompat.checkSelfPermission(AccountSetup.this, Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
 
-                        Toast.makeText(AccountSetup.this, "Permission Denied", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(AccountSetup.this, "Permission Denied", Toast.LENGTH_LONG).show();
                         ActivityCompat.requestPermissions(AccountSetup.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 1);
                     } else {
 
@@ -187,7 +196,7 @@ public class AccountSetup extends AppCompatActivity {
         });
     }
 
-    private void storeFirestore(@NonNull Task<UploadTask.TaskSnapshot> task, String user_name) {
+    private void storeFirestore(@NonNull Task<UploadTask.TaskSnapshot> task, String user_name, String contact, String address) {
 
         Uri downloadUri;
 
@@ -201,6 +210,8 @@ public class AccountSetup extends AppCompatActivity {
         Map<String, Object> userMap = new HashMap<>();
         userMap.put("name", user_name);
         userMap.put("image", downloadUri.toString());
+        userMap.put("contact", contact);
+        userMap.put("address", address);
 
         firebaseFirestore.collection("Users").document(user_id).set(userMap)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
