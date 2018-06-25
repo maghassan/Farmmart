@@ -9,10 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class BuyProducts extends AppCompatActivity {
 
     private ImageView callSeller;
+    private TextView postT, postP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,24 +22,27 @@ public class BuyProducts extends AppCompatActivity {
         setContentView(R.layout.activity_buy_products);
 
         callSeller = findViewById(R.id.callSeller);
+        postT = findViewById(R.id.product_Title);
+        postP = findViewById(R.id.product_Price);
 
         final String contact = getIntent().getExtras().getString("contact");
+        final String title = getIntent().getExtras().getString("title");
+        final String price = getIntent().getExtras().getString("price");
+
+        postP.setText(price);
+        postT.setText(title);
 
         callSeller.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                Intent callSeller = new Intent(Intent.ACTION_CALL);
-                callSeller.setData(Uri.parse(contact));
-                if (ActivityCompat.checkSelfPermission(BuyProducts.this, Manifest.permission.CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
-                    // TODO: Consider calling
-                    //    ActivityCompat#requestPermissions
-                    // here to request the missing permissions, and then overriding
-                    //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-                    //                                          int[] grantResults)
-                    // to handle the case where the user grants the permission. See the documentation
-                    // for ActivityCompat#requestPermissions for more details.
-                    return;
+                Intent callSeller = new Intent(Intent.ACTION_NEW_OUTGOING_CALL);
+                callSeller.setData(Uri.parse("tel :" + contact));
+                callSeller.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                if (ActivityCompat.checkSelfPermission(BuyProducts.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+
+
                 }
                 startActivity(callSeller);
             }
